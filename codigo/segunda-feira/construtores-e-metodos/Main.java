@@ -1,4 +1,4 @@
-public class Aluno {
+class Aluno {
     private int id;
     private String nome;
     private int idade;
@@ -25,8 +25,7 @@ public class Aluno {
     }
 }
 
--------------------------------------------------
-public class Instrutor {
+class Instrutor {
     private int id;
     private String nome;
     private String cref;
@@ -52,8 +51,7 @@ public class Instrutor {
     }
 }
 
-----------------------------------------------------
-public class Treino {
+class Treino {
     private int id;
     private String nome;
     private String descricao;
@@ -81,8 +79,7 @@ public class Treino {
     }
 }
 
--------------------------------------------------------------
-public class Academia {
+class Academia {
     private String nome;
     private String endereco;
 
@@ -104,7 +101,6 @@ public class Academia {
     }
 }
 
-------------------------------------------------------------
 public class Main {
     public static void main(String[] args) {
 
@@ -163,5 +159,3 @@ public class Main {
         academia.pesquisarAluno("Luiz");
     }
 }
-
-----------------------------------------------------------

@@ -1,6 +1,3 @@
-import java.util.ArrayList;
-import java.util.List;
-
 class Aluno {
     private String nome;
     private int idade;
@@ -39,6 +36,10 @@ class Frequencia {
     private int totalAulas;
 
     public Frequencia(int totalPresencas, int totalAulas) {
+        if (totalAulas < 0 || totalPresencas < 0 || totalPresencas > totalAulas) {
+            throw new IllegalArgumentException("Os totais de aulas e presenças são inválidos.");
+        }
+
         this.totalPresencas = totalPresencas;
         this.totalAulas = totalAulas;
     }
