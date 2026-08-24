@@ -6,7 +6,6 @@ import java.util.List;
 // ==========================
 class Aluno {
 
-```
 private int id;
 private String nome;
 private int idade;
@@ -93,7 +92,6 @@ private void validarTelefone(String telefone) {
         );
     }
 }
-```
 
 }
 
@@ -102,7 +100,6 @@ private void validarTelefone(String telefone) {
 // ==========================
 class Instrutor {
 
-```
 private int id;
 private String nome;
 private String cref;
@@ -189,7 +186,6 @@ private void validarTexto(String texto, String campo) {
         );
     }
 }
-```
 
 }
 
@@ -198,7 +194,6 @@ private void validarTexto(String texto, String campo) {
 // ==========================
 class Treino {
 
-```
 private int id;
 private String nome;
 private String descricao;
@@ -325,7 +320,6 @@ private void validarDuracao(int duracao) {
         );
     }
 }
-```
 
 }
 
@@ -334,7 +328,6 @@ private void validarDuracao(int duracao) {
 // ==========================
 class Academia {
 
-```
 private String nome;
 private String endereco;
 
@@ -441,7 +434,6 @@ public void exibirDados() {
         "Quantidade de instrutores: " + instrutores.size()
     );
 }
-```
 
 }
 
@@ -450,7 +442,6 @@ public void exibirDados() {
 // ==========================
 public class Main {
 
-```
 public static void main(String[] args) {
 
     System.out.println("================================");
@@ -551,6 +542,6 @@ public static void main(String[] args) {
     System.out.println("\n===== INFORMAÇÕES DA ACADEMIA =====");
     academia.exibirDados();
 }
-```
 
 }
+
