@@ -1,95 +1,73 @@
-Análise do projeto
-Analisei o repositório Academia do Eduzão e do Luizão. O projeto propõe um sistema para academias de pequeno porte, centralizando alunos, instrutores e treinos. O README define três perfis principais: Aluno, Instrutor e Administrador. 
-G
-GitHub
+                         🏋️ SISTEMA DA ACADEMIA
+                                  │
+             ┌────────────────────┼────────────────────┐
+             │                    │                    │
+             ▼                    ▼                    ▼
+       👤 ALUNO              🏋️ INSTRUTOR       👨‍💼 ADMINISTRADOR
+             │                    │                    │
+             │                    │                    ├── Cadastrar instrutor
+             │                    │                    ├── Pesquisar aluno
+             │                    │                    └── Excluir aluno inativo
+             │                    │
+             │                    ├── Cadastrar aluno
+             │                    ├── Criar treino
+             │                    ├── Associar treino
+             │                    ├── Atualizar treino
+             │                    └── Excluir treino
+             │
+             │
+             ▼                    ▼
+      ┌─────────────────────────────────────────┐
+      │               📋 TREINO                  │
+      │                                          │
+      │  • Nome                                  │
+      │  • Descrição                             │
+      │  • Exercícios                            │
+      │  • Séries                                │
+      │  • Repetições                            │
+      │  • Carga                                 │
+      │  • Descanso                              │
+      └──────────────────┬──────────────────────┘
+                         │
+                         │ Associação
+                         ▼
+                    👤 ALUNO
+                         │
+                         ▼
+                📱 Visualiza treino
+                  🏋️ ACADEMIA
+                       │
+          ┌────────────┴────────────┐
+          │                         │
+          ▼                         ▼
+     👤 ALUNOS                 🏋️ INSTRUTORES
+          │                         │
+          │                         │
+          │                    cria / gerencia
+          │                         │
+          │                         ▼
+          │                    📋 TREINOS
+          │                         │
+          │                  ┌──────┴──────┐
+          │                  │             │
+          │                  ▼             ▼
+          │             💪 EXERCÍCIOS   📊 SÉRIES
+          │                              REPETIÇÕES
+          │                              CARGA
+          │
+          └──────────────┐
+                         │
+                         ▼
+                 🔗 ASSOCIAÇÃO
+                   TREINO ↔ ALUNO
+                         │
+                         ▼
+                 👤 ALUNO VISUALIZA
+                    SEU TREINO
+O sistema possui três perfis principais: Aluno, Instrutor e Administrador.
+O Instrutor é responsável pela criação e gerenciamento dos treinos, enquanto o Aluno pode visualizar os treinos associados a ele.
+O Administrador possui funções de gerenciamento dos usuários, como cadastrar instrutores, pesquisar alunos e excluir alunos inativos."
 
-As funcionalidades principais são:
 
-Aluno: visualizar seus treinos.
-Instrutor: cadastrar alunos, criar treinos, associar treinos aos alunos, atualizar e remover treinos.
-Administrador: cadastrar instrutores, pesquisar alunos e excluir alunos inativos.
-Treino: é a informação central que conecta o trabalho do instrutor ao aluno. 
-G
-GitHub
-Também observei que o código está sendo desenvolvido de forma incremental, com pastas relacionadas a modelo inicial, construtores/métodos e encapsulamento/validação, além de uma etapa de desenvolvimento incremental com Main.java e Testes.java. 
-G
-GitHub
-+1
-
-Diagrama de funcionamento
-Com base no que está documentado no repositório, este é o diagrama que representa melhor o funcionamento do sistema:
-
-🏋️ SISTEMA DA ACADEMIA
-👤 ALUNO
-🏋️ INSTRUTOR
-👨‍💼 ADMINISTRADOR
-Visualizar treinos
-📋 TREINO
-Cadastrar aluno
-Cadastrar treino
-Associar treino ao aluno
-Atualizar treino
-Excluir treino
-🔗 Associação
-Cadastrar instrutor
-Pesquisar aluno
-Excluir aluno inativo
-💪 Exercícios
-Séries / Repetições
-Diagrama de relacionamento das entidades
-Se a intenção for um diagrama de classes/entidades para apresentar no trabalho, eu estruturaria assim:
-
-classDiagram
-
-    class Academia {
-        +nome
-        +endereco
-    }
-
-    class Aluno {
-        +id
-        +nome
-        +email
-        +telefone
-        +dataNascimento
-    }
-
-    class Instrutor {
-        +id
-        +nome
-        +email
-        +especialidade
-    }
-
-    class Treino {
-        +id
-        +nome
-        +descricao
-        +dataCriacao
-        +dataAtualizacao
-    }
-
-    class Exercicio {
-        +id
-        +nome
-        +grupoMuscular
-        +descricao
-    }
-
-    class TreinoExercicio {
-        +series
-        +repeticoes
-        +carga
-        +descanso
-    }
-
-    Academia "1" --> "*" Aluno : possui
-    Academia "1" --> "*" Instrutor : possui
-
-    Instrutor "1" --> "*" Treino : cria
-    Aluno "1" --> "*" Treino : possui
-
-    Treino "1" --> "*" TreinoExercicio : contém
-    Exercicio "1" --> "*" TreinoExercicio : participa
-
-Observação importante: as classes Academia, Exercicio e TreinoExercicio são uma proposta de modelagem, inferida a partir das funcionalidades descritas no README; não estou afirmando que todas já estejam implementadas exatamente dessa forma no código atual. O repositório documenta explicitamente alunos, instrutores, treinos e a associação entre treinos e alunos.
+"O treino é o elemento central do sistema, pois conecta o instrutor ao aluno. Um instrutor pode criar um treino e associá-lo a um aluno.
+Esse treino é composto por exercícios, séries, repetições, carga e descanso."
