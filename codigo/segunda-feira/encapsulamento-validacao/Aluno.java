@@ -1,15 +1,14 @@
-public class Aluno {
+public class Main {
 
-    private String nome;
-    private int idade;
-    private String cpf;
+    public static void main(String[] args) {
 
-    public Aluno(String nome, int idade, String cpf) {
-        setNome(nome);
-        setIdade(idade);
-        setCpf(cpf);
+        Aluno aluno = new Aluno("João", 20, "12345678901");
+
+        System.out.println(aluno.getNome());
+        System.out.println(aluno.getIdade());
+        System.out.println(aluno.getCpf());
     }
-
+}
     public String getNome() {
         return nome;
     }
