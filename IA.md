@@ -296,3 +296,11 @@ Sempre preferir:
 
 **solução simples + código legível + validação + testes + explicação.**
 
+
+
+
+
+Analisei o repositório do projeto Academia do Eduzão e do Luizão. O README confirma que o sistema tem como objetivo centralizar o cadastro e acompanhamento de alunos e treinos, com alunos, instrutores e administradores como público-alvo. As funcionalidades atuais incluem cadastro, associação e consulta de treinos, atualização, exclusão e pesquisa de alunos. Também há no repositório os documentos das atividades anteriores, incluindo a entrevista de elicitação, o recorte do problema e o esboço inicial de requisitos.
+
+Abaixo está uma versão já revisada e organizada para a AP1, corrigindo principalmente problemas de ambiguidade, verificabilidade e falta de regras de acesso.
+
