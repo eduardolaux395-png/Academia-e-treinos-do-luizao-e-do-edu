@@ -1,0 +1,28 @@
+Como a atividade diz que a decisão da coleção deve ser de vocês, eu não escolheria List, Set ou Map por você. Mas, se vocês decidirem usar List, a implementação ficaria assim:
+
+import java.util.ArrayList;
+import java.util.List;
+
+class Aluno {
+    private int id;
+    private String nome;
+    private int idade;
+    private String telefone;
+
+    private List<Treino> treinos;
+
+    public Aluno(int id, String nome, int idade, String telefone) {
+        this.id = id;
+        this.nome = nome;
+        this.idade = idade;
+        this.telefone = telefone;
+
+        this.treinos = new ArrayList<>();
+    }
+
+    public void adicionarTreino(Treino treino) {
+        treinos.add(treino);
+    }
+
+    // restante da classe...
+}
