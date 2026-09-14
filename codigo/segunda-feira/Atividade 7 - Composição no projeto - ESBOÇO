@@ -1,0 +1,52 @@
+1. Relação de composição
+A relação identificada é:
+
+Todo: Todo
+Parte: Parte
+A classe Todo cria e controla internamente sua Parte.
+A Parte não é criada independentemente pelo código externo.
+Quando o Todo é esvaziado/removido, sua Parte também deixa de existir.
+2. Esboço da classe Todo
+public class Todo {
+    private Parte parte;
+
+    public Todo() {
+        // A parte é criada internamente pelo todo
+        this.parte = new Parte();
+    }
+
+    public void removerParte() {
+        this.parte = null;
+    }
+
+    public double calcular() {
+        return parte.calcular();
+    }
+}
+
+3. Esboço da classe Parte
+public class Parte {
+
+    public double calcular() {
+        // Cálculo realizado pela própria parte
+        return 100.0; // exemplo
+    }
+}
+
+4. Método de remoção/esvaziamento
+O método responsável por remover a parte pode ser:
+
+public void removerParte() {
+    this.parte = null;
+}
+
+Assim, o objeto Todo deixa de manter a referência para sua Parte.
+
+5. Cálculo delegado à parte
+O Todo não realiza diretamente o cálculo. Ele apenas delega a responsabilidade para sua parte:
+
+public double calcular() {
+    return parte.calcular();
+}
+
+Isso demonstra a ideia de delegação, pois quem conhece e executa o cálculo é a classe Parte.
