@@ -1,0 +1,64 @@
+- classe todo 
+public class Todo {
+
+    private Parte parte;
+
+    public Todo() {
+        // A Parte é criada internamente pelo Todo
+        this.parte = new Parte();
+    }
+
+    public void removerParte() {
+        this.parte = null;
+    }
+
+    public double calcular() {
+        return parte.calcular();
+    }
+
+    public Parte getParte() {
+        return parte;
+    }
+}
+
+- classe parte 
+public class Parte {
+
+    public double calcular() {
+        return 100.0;
+    }
+}
+
+- teste 
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+
+public class TodoTest {
+
+    @Test
+    public void deveDelegarCalculoParaParte() {
+        Todo todo = new Todo();
+
+        double resultado = todo.calcular();
+
+        assertEquals(100.0, resultado);
+    }
+
+    @Test
+    public void deveRemoverParte() {
+        Todo todo = new Todo();
+
+        assertNotNull(todo.getParte());
+
+        todo.removerParte();
+
+        assertNull(todo.getParte());
+    }
+}
+
+saida esperada: 
+double resultado = todo.calcular();
+assertEquals(100.0, resultado);
+
+
+
