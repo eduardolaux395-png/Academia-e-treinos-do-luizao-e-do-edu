@@ -1,0 +1,28 @@
+@Test
+void deveDelegarCalculoParaExercicios() {
+    Treino treino = new Treino(1, "Treino A", "Superior", 60);
+
+    treino.adicionarExercicio("Supino", 3, 10);
+    treino.adicionarExercicio("Rosca", 4, 12);
+
+    assertEquals(78, treino.calcularRepeticoesTotais());
+}
+
+@Test
+void deveRemoverTodasAsPartesDoTreino() {
+    Treino treino = new Treino(1, "Treino A", "Superior", 60);
+
+    treino.adicionarExercicio("Supino", 3, 10);
+    treino.adicionarExercicio("Rosca", 4, 12);
+
+    assertEquals(2, treino.getExercicios().size());
+
+    treino.esvaziarExercicios();
+
+    assertTrue(treino.getExercicios().isEmpty());
+}
+
+A relação escolhida é entre Treino e Exercicio, pois os exercícios fazem parte da estrutura interna de um treino.
+O Treino é responsável por criar seus próprios objetos Exercicio e também por removê-los quando seu conteúdo é esvaziado.
+O Exercicio não é criado de forma independente pelo código externo para depois ser associado ao Treino.
+Por isso, a relação representa composição, e não apenas agregação.
