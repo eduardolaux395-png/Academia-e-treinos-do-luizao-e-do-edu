@@ -1,0 +1,50 @@
+Teste do “é um”
+
+A relação fica:
+
+Aluno é uma Pessoa? → Sim.
+Instrutor é uma Pessoa? → Sim.
+
+superclasse:
+public class Pessoa {
+
+    private int id;
+    private String nome;
+
+    public Pessoa(int id, String nome) {
+        this.id = id;
+        this.nome = nome;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+}
+
+subclasse: 
+public class Aluno extends Pessoa {
+
+    private int idade;
+    private String telefone;
+
+    public Aluno(int id, String nome, int idade, String telefone) {
+        super(id, nome);
+        this.idade = idade;
+        this.telefone = telefone;
+    }
+
+    public int getIdade() {
+        return idade;
+    }
+
+    public String getTelefone() {
+        return telefone;
+    }
+}
+
+frase do teste "é um?"
+A relação passou no teste do “é um” porque um Aluno é uma Pessoa, ou seja, o Aluno possui características comuns de uma Pessoa, como id e nome, além de possuir características próprias, como idade e telefone.
