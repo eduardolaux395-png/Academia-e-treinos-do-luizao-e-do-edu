@@ -78,3 +78,12 @@ ou verificações de tipo.
 Isso caracteriza polimorfismo porque o código cliente trabalha com
 a abstração Pessoa enquanto cada classe concreta fornece seu próprio
 comportamento.
+                 Pessoa
+                /      \
+               /        \
+           Aluno      Instrutor
+             ↓            ↓
+       apresentar()  apresentar()
+             \            /
+              \          /
+               Academia
