@@ -59,3 +59,22 @@ Muitas academias utilizam planilhas ou anotações para controlar alunos e trein
 ## Licença
 
 Licença a definir — adicione aqui a licença do projeto (por exemplo: MIT).
+
+### Polimorfismo
+
+O projeto utiliza polimorfismo através da classe abstrata Pessoa.
+
+Aluno e Instrutor herdam de Pessoa e implementam o método apresentar()
+de maneiras diferentes.
+
+A classe Academia recebe uma referência do tipo Pessoa e chama o
+método apresentar() sem verificar se o objeto é um Aluno ou um
+Instrutor.
+
+Dessa forma, o mesmo código pode executar comportamentos diferentes
+dependendo do objeto recebido. Não são utilizados instanceof, casts
+ou verificações de tipo.
+
+Isso caracteriza polimorfismo porque o código cliente trabalha com
+a abstração Pessoa enquanto cada classe concreta fornece seu próprio
+comportamento.
