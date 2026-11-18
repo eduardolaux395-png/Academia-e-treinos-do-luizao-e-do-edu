@@ -1,0 +1,254 @@
+# AS — Gerenciamento de Solicitação de Mudança
+
+**Projeto:** Academia do Eduzão e do Luizão  
+**Repositório:** https://github.com/eduardolaux395-png/Academia-e-treinos-do-luizao-e-do-edu  
+**Solicitação:** SM-01 — Histórico de frequência dos alunos  
+**Data de registro:** 18/11/2026  
+**Equipe:** Eduardo e Luiz  
+
+---
+
+## 1. Linha de base
+
+**Versão de referência:** v1.0 — linha de base acadêmica.
+
+**Repositório antes da mudança:**  
+https://github.com/eduardolaux395-png/Academia-e-treinos-do-luizao-e-do-edu/tree/main
+
+A linha de base representa o estado do projeto antes da solicitação SM-01. Para torná-la imutável, a equipe deverá criar uma tag Git `v1.0.0` apontando para o commit atual da branch `main`, antes de integrar qualquer alteração.
+
+**Estado identificado:** o projeto possui uma classe `Frequencia`, que calcula o percentual de presença usando o total de presenças e o total de aulas. Ainda não existe registro individual de cada presença por aluno e data.
+
+## 2. Registro da solicitação — SM-01
+
+| ID | Solicitante | Data | Descrição | Motivo | Urgência |
+|---|---|---|---|---|---|
+| SM-01 | Stakeholder simulado: instrutor da academia | 18/11/2026 | Quero que o sistema registre as presenças dos alunos individualmente, mostrando as datas em que cada aluno compareceu. | Facilitar o acompanhamento da frequência e evitar controles separados em papel ou planilhas. | Média |
+
+### Origem da solicitação
+
+Stakeholder simulado com IA. A conversa abaixo é uma simulação preparada para esta atividade, não uma entrevista real.
+
+**Solicitante:**  
+"Gostaria que o sistema registrasse a frequência de cada aluno por data. Atualmente, preciso controlar as presenças separadamente e gostaria de consultar o histórico de cada aluno."
+
+### Perguntas de esclarecimento
+
+**Pergunta 1:** O registro de presença deve estar associado a um aluno específico e a uma data?
+
+**Resposta simulada:** Sim. Cada presença deve pertencer a um aluno e ter a data em que ocorreu.
+
+**Pergunta 2:** O sistema deve permitir consultar o histórico de frequência de um aluno?
+
+**Resposta simulada:** Sim. Quero consultar as datas em que o aluno compareceu e acompanhar seu histórico.
+
+**Pergunta 3:** O sistema deve permitir registrar duas presenças para o mesmo aluno na mesma data?
+
+**Resposta simulada:** Não. Deve existir apenas um registro de presença por aluno em cada data.
+
+## 3. Análise de impacto
+
+A solicitação altera o comportamento da funcionalidade de frequência e afeta o escopo documentado no README e o código de desenvolvimento incremental.
+
+| Item afetado | Como está hoje | Mudança necessária | Esforço | Risco |
+|---|---|---|---|---|
+| História de usuário | Não há história específica de histórico de presença | Criar história para registrar e consultar presenças | P | Requisito incompleto |
+| RF — frequência | A classe calcula um percentual geral | Registrar presença por aluno e data | G | Alteração da regra atual |
+| RN — frequência | Valida totais de aulas e presenças | Impedir duplicidade de presença na mesma data | M | Registros duplicados |
+| RNF — segurança | O projeto ainda não possui autenticação consolidada | Proteger os dados de frequência dos alunos | G | Exposição de dados |
+| Critérios de aceitação | Existem verificações básicas do cálculo | Definir critérios para registro, consulta e duplicidade | M | Funcionalidade sem validação |
+| Casos de teste | Cinco testes verificam o cálculo e as entradas inválidas | Criar testes de registro, consulta e duplicidade | M | Falhas em regras novas |
+| Modelo de classes | `Aluno` e `Frequencia` existem separadamente | Relacionar os registros de frequência ao aluno | M | Associação incorreta |
+| Arquitetura | Código incremental ainda não está consolidado em camadas | Preparar uma estrutura para gerenciar os registros | G | Complexidade e retrabalho |
+| Plano de qualidade | Testes básicos de frequência | Incluir testes de histórico e integridade | M | Regressões |
+| Backlog | Frequência não possui prioridade específica | Adicionar histórico de frequência ao backlog | P | Aumento do escopo |
+
+### Itens conferidos que não precisam mudar agora
+
+- Cadastro básico de alunos.
+- Cadastro básico de treinos.
+- Classe `Treino`.
+- Classe `Evolucao`.
+- Regra atual de cálculo percentual da frequência.
+- Testes existentes de cálculo e validação da frequência.
+- Funcionalidade de polimorfismo entre `Pessoa`, `Aluno` e `Instrutor`.
+
+Esses itens devem ser reavaliados caso a implementação da mudança seja aprovada futuramente.
+
+### Matriz de rastreabilidade atualizada
+
+Os códigos abaixo são identificadores provisórios para esta atividade, pois o repositório não apresenta uma matriz formal com identificadores oficiais.
+
+| ID | Item | Relação com SM-01 | Situação |
+|---|---|---|---|
+| RF01 | Cadastro de alunos | O histórico depende de um aluno cadastrado | Mantido |
+| RF02 | Cadastro de treinos | Não interfere diretamente no histórico | Mantido |
+| RF03 | Associação de treinos | Não interfere diretamente no registro de presença | Mantido |
+| RF04 | Consulta de treinos | Não é alterado pela solicitação | Mantido |
+| RF05 | Registrar frequência individual | Novo requisito proposto pela SM-01 | Adiado |
+| RF06 | Consultar histórico de frequência | Novo requisito proposto pela SM-01 | Adiado |
+| RN01 | Validar frequência | Deve continuar funcionando | Mantido |
+| RN02 | Impedir presença duplicada na mesma data | Nova regra proposta pela SM-01 | Adiado |
+| CT01–CT05 | Testes atuais de frequência | Devem continuar passando | Regressão futura |
+| CT06–CT08 | Testes de histórico, consulta e duplicidade | Novos testes propostos | Adiados |
+
+## 4. Alternativas avaliadas
+
+### Alternativa A — Aprovar a solicitação inteira
+
+**Prós:**
+- Atende completamente ao pedido do instrutor.
+- Permite acompanhar a frequência individual.
+- Centraliza as informações no sistema.
+
+**Contras:**
+- Exige mudanças no modelo de classes.
+- Exige novos testes e regras de negócio.
+- Pode aumentar o tempo de desenvolvimento.
+
+**Efeito no prazo:** aumento estimado de um incremento de desenvolvimento, sujeito à avaliação da equipe.
+
+### Alternativa B — Adiar a solicitação
+
+**Prós:**
+- Permite finalizar e organizar as funcionalidades prioritárias.
+- Evita aumentar a complexidade antes da consolidação da arquitetura.
+- Dá tempo para planejar os testes e a persistência dos dados.
+
+**Contras:**
+- O instrutor continuará utilizando controles externos.
+- O histórico individual não estará disponível neste momento.
+
+**Efeito no prazo:** não altera o prazo do incremento atual. A mudança será planejada para um incremento futuro.
+
+## 5. Decisão do Product Owner (PO)
+
+**Responsável pela decisão:** PO da equipe.
+
+**Decisão:** ADIAR a SM-01.
+
+**Justificativa:** a solicitação é relevante para o funcionamento do sistema, mas a equipe precisa priorizar a organização do código, a consolidação das funcionalidades essenciais e a melhoria dos testes. Implementar o histórico agora aumentaria o escopo e poderia gerar retrabalho.
+
+**O que será adiado:** registro individual de presença, consulta do histórico e prevenção de duplicidade por aluno e data.
+
+**Onde ficará registrada:** backlog do projeto, como funcionalidade futura vinculada à SM-01.
+
+A decisão não significa rejeitar a necessidade do stakeholder. Significa apenas que a mudança não será implementada no incremento atual.
+
+## 6. Implementação e controle de versão
+
+Como a decisão foi adiar a solicitação, não haverá alteração no código funcional nem nova release.
+
+A documentação da SM-01 e da decisão deverá ser adicionada ao repositório por meio de uma branch e um pull request.
+
+**Branch proposta:** `sm-01-historico-frequencia`
+
+**Commit sugerido:**
+
+`docs: registra SM-01 e decisão de adiamento do histórico de frequência`
+
+**Título do PR:**
+
+`docs: registra solicitação SM-01 — histórico de frequência`
+
+**Descrição do PR:**
+
+Este PR registra a solicitação de mudança SM-01, sua origem, perguntas de esclarecimento, análise de impacto, alternativas avaliadas e decisão do PO.
+
+A solicitação foi adiada para um incremento futuro. Nenhuma regra de negócio ou funcionalidade do sistema foi modificada.
+
+**Revisão:** deverá ser realizada por outro integrante da equipe antes da aprovação e do merge.
+
+**Nova release:** não se aplica, pois a mudança foi adiada.
+
+### Antes e depois dos artefatos
+
+**Artefato 1 — Backlog**
+
+Antes:
+- Cadastro de alunos.
+- Cadastro de treinos.
+- Associação de treinos.
+- Consulta de treinos.
+
+Depois:
+- Os itens anteriores permanecem.
+- Novo item futuro: registrar frequência individual.
+- Novo item futuro: consultar histórico de frequência.
+- Novo item futuro: impedir presença duplicada na mesma data.
+
+**Artefato 2 — Matriz de rastreabilidade**
+
+Antes:
+- Existiam verificações do cálculo percentual da frequência.
+- Não havia requisitos específicos para histórico individual.
+
+Depois:
+- RF05 e RF06 foram propostos e vinculados à SM-01.
+- RN02 foi proposto para evitar duplicidade.
+- CT06, CT07 e CT08 foram planejados para validar a nova funcionalidade.
+
+Observação: os itens apresentados como "depois" são propostas documentais. Não representam funcionalidades já implementadas.
+
+## 7. Rastreabilidade e testes atualizados
+
+### Casos de teste existentes — regressão
+
+| Teste | Descrição | Execução futura |
+|---|---|---|
+| CT01 | 18 presenças em 20 aulas resulta em 90% | Sim |
+| CT02 | Zero aulas resulta em 0% | Sim |
+| CT03 | Presenças negativas são rejeitadas | Sim |
+| CT04 | Presenças maiores que aulas são rejeitadas | Sim |
+| CT05 | Total de aulas negativo é rejeitado | Sim |
+
+### Novos casos de teste planejados
+
+| Teste | Descrição | Resultado esperado |
+|---|---|---|
+| CT06 | Registrar presença para aluno cadastrado em uma data | Presença registrada |
+| CT07 | Consultar histórico de um aluno | Exibir datas registradas |
+| CT08 | Registrar duas presenças para o mesmo aluno na mesma data | Impedir duplicidade |
+
+**Regressão futura:** executar CT01, CT02, CT03, CT04 e CT05 depois da implementação da SM-01, além dos novos testes CT06, CT07 e CT08.
+
+Nenhum desses novos testes foi executado, pois a mudança foi adiada.
+
+## 8. CHANGELOG.md
+
+Como a solicitação foi adiada, não haverá incremento de versão. O registro ficará na seção `Unreleased`.
+
+### Conteúdo proposto para o CHANGELOG.md
+
+```markdown
+# Changelog
+
+## [Unreleased] - 2026-11-18
+
+### Adicionado
+- Registro documental da solicitação de mudança SM-01.
+- Proposta de requisitos para histórico individual de frequência.
+- Proposta de testes para registro e consulta de presenças.
+
+### Alterado
+- Backlog documentado para incluir a solicitação SM-01 como item futuro.
+- Matriz de rastreabilidade documentada com os itens relacionados à mudança.
+
+### Corrigido
+- Não houve correções no código nesta solicitação.
+
+### Removido
+- Nenhuma funcionalidade removida.
+
+### Decisão
+- SM-01 adiada pelo PO para um incremento futuro.
+- Nenhuma nova release foi criada.
+```
+
+## Conclusão
+
+A equipe recebeu e analisou uma solicitação de mudança que afeta diretamente o funcionamento do sistema de academia. A análise identificou impactos nos requisitos, regras de negócio, testes, modelo de classes, arquitetura e backlog.
+
+Após avaliar as alternativas, o PO decidiu adiar a implementação para priorizar a organização e a estabilidade das funcionalidades atuais. A solicitação permanecerá registrada para ser considerada em um próximo incremento.
+
+A decisão mantém o controle de mudanças e a rastreabilidade do projeto, evitando implementar uma funcionalidade sem planejamento adequado.
