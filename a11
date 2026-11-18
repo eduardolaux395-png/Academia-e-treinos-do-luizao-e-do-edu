@@ -1,0 +1,131 @@
+# PLANO INICIAL DE QUALIDADE
+## Projeto: Academia do Eduzão e do Luizão
+
+**Etapa:** AS  
+**Modalidade:** Em equipe  
+**Integrantes:** Eduardo e Luiz
+
+### 1. Contexto
+
+O projeto Academia do Eduzão e do Luizão consiste no desenvolvimento de um sistema em Java para auxiliar no gerenciamento de academias de pequeno porte, centralizando informações de alunos, instrutores e treinos. O sistema busca substituir controles realizados manualmente por planilhas e anotações, facilitando o cadastro, a organização e a consulta das informações. O público-alvo é formado por alunos, instrutores e administradores de academias. Os stakeholders com maior influência nas decisões de qualidade são os instrutores, que precisam cadastrar e acompanhar os treinos, os administradores, responsáveis pela organização das informações, e os alunos, que precisam consultar seus treinos de maneira simples e confiável.
+
+### 2. Características de qualidade priorizadas
+
+Foram selecionadas cinco características da ISO/IEC 25010:2023, considerando as necessidades do sistema e o estágio atual de desenvolvimento.
+
+**1. Adequação funcional**
+
+É importante que o sistema execute corretamente suas principais funções, como cadastrar alunos, organizar treinos e permitir a consulta das informações. Essa característica está relacionada às funcionalidades descritas no README e às necessidades dos instrutores e administradores.
+
+Referências:
+- RF01 – Cadastro de alunos.
+- RF02 – Cadastro de treinos.
+- RF03 – Associação de treinos aos alunos.
+- RF04 – Consulta de treinos dos alunos.
+
+**2. Confiabilidade**
+
+O sistema precisa apresentar resultados corretos e evitar comportamentos inesperados durante sua execução. A validação da frequência dos alunos já demonstra uma preocupação com a consistência dos dados e com a prevenção de valores inválidos.
+
+Referências:
+- RN01 – O total de presenças não pode ser negativo nem superior ao total de aulas.
+- RQ01 – Possibilidade de ocorrência de dados inválidos.
+- Componente: classe Frequencia.
+
+**3. Capacidade de interação**
+
+O sistema deve ser simples de compreender e utilizar, facilitando a interação dos alunos, instrutores e administradores. Como o projeto possui funcionalidades de consulta e gerenciamento, é importante que as informações sejam apresentadas de forma clara.
+
+Referências:
+- RF01 – Cadastro de alunos.
+- RF04 – Consulta de treinos dos alunos.
+- README – Definição do público-alvo.
+
+**4. Segurança**
+
+O sistema trabalha com informações pessoais dos alunos, como nome, idade e telefone. Portanto, é importante evitar exposição desnecessária de dados e preservar a integridade das informações.
+
+Referências:
+- RQ02 – Risco de exposição de informações pessoais.
+- Componente: classe Aluno.
+- IA.md – Orientações sobre utilização de dados fictícios e proteção de informações pessoais.
+
+**5. Manutenibilidade**
+
+O projeto precisa permitir que novas funcionalidades sejam adicionadas sem tornar o código difícil de compreender ou modificar. A organização das classes, o encapsulamento e os testes ajudam a facilitar futuras correções e melhorias.
+
+Referências:
+- RQ03 – Risco de dificuldade na manutenção e evolução do código.
+- Componente: classes Aluno, Treino, Frequencia e Evolucao.
+- Testes.java – Verificações automatizadas.
+
+### 3. Tabela do plano de qualidade
+
+| Característica | Subcaracterística | Por que importa neste projeto | Métrica | Meta | Como verificar | Responsável | Quando |
+|---|---|---|---|---|---|---|---|
+| Adequação funcional | Completude funcional | O sistema precisa atender às principais necessidades da academia. | Funcionalidades prioritárias implementadas | 100% das funcionalidades previstas para cada incremento | Testes funcionais e conferência dos requisitos | Eduardo | A cada incremento |
+| Confiabilidade | Tolerância a falhas | O sistema deve impedir valores inválidos e apresentar resultados corretos. | Testes de validação aprovados | 100% dos casos de teste definidos aprovados | Executar Testes.java e verificar entradas inválidas | Luiz | Durante o desenvolvimento |
+| Capacidade de interação | Aprendizabilidade | Os usuários precisam compreender as operações sem dificuldade. | Tempo para realizar tarefas básicas | Cadastro e consulta demonstráveis em até 2 minutos, após breve orientação | Teste de utilização com um usuário | Eduardo | Após cada incremento |
+| Segurança | Confidencialidade | O sistema trabalha com informações pessoais dos alunos. | Dados pessoais reais expostos em exemplos e testes | Zero dados pessoais reais em exemplos, testes e documentação | Revisão de código e documentação | Luiz | Em cada revisão |
+| Manutenibilidade | Modularidade | O código precisa ser organizado para facilitar alterações e correções. | Arquivos e responsabilidades organizados | Cada classe deve possuir responsabilidade definida, sem concentrar regras de negócio no Main | Revisão da estrutura e do código | Eduardo e Luiz | A cada incremento |
+
+### 4. Características deixadas para depois
+
+Algumas características não serão priorizadas inicialmente, pois o projeto ainda está em desenvolvimento e precisa primeiro consolidar suas funcionalidades principais.
+
+**Eficiência de desempenho:** neste momento, o sistema trabalha com exemplos e estruturas pequenas de dados. Otimizações avançadas não são necessárias antes da implementação de funcionalidades mais completas.
+
+**Compatibilidade:** o projeto ainda não possui integração com outros sistemas ou plataformas. Essa característica poderá ser avaliada futuramente, caso sejam necessárias integrações ou execução em diferentes ambientes.
+
+**Flexibilidade:** a adaptação para diferentes plataformas e ambientes poderá ser trabalhada em etapas futuras, depois que a estrutura principal do sistema estiver consolidada.
+
+### 5. Conflitos entre características
+
+Um conflito identificado no projeto é entre segurança e capacidade de interação.
+
+A segurança pode exigir validações e restrições para proteger os dados dos alunos, enquanto a facilidade de uso exige que as operações sejam simples e rápidas.
+
+A decisão da equipe é priorizar a proteção e a integridade das informações, mas sem criar processos desnecessariamente complicados. As validações devem ser claras e apresentar mensagens que ajudem o usuário a corrigir possíveis erros.
+
+Outro cuidado é não adicionar mecanismos complexos de autenticação enquanto eles não fizerem parte do escopo definido do projeto.
+
+### 6. Qualidade dentro do processo – Definition of Done
+
+A equipe atualizou sua definição de pronto para garantir que as funcionalidades sejam verificadas antes de serem consideradas concluídas.
+
+Uma funcionalidade será considerada pronta quando:
+
+- O código estiver implementado e organizado.
+- Os requisitos da funcionalidade forem atendidos.
+- Os dados inválidos forem tratados adequadamente.
+- Os testes relacionados forem executados e aprovados.
+- Não existirem erros conhecidos que impeçam o funcionamento da funcionalidade.
+- A documentação for atualizada quando houver mudanças relevantes.
+
+**Momento da verificação no fluxo de desenvolvimento:**
+
+1. Planejamento: definir o requisito e os critérios de aceitação.
+2. Desenvolvimento: implementar a funcionalidade.
+3. Revisão: verificar a organização e as validações do código.
+4. Testes: executar os testes e conferir os resultados esperados.
+5. Conclusão: registrar as alterações e atualizar a documentação.
+
+Uma funcionalidade que não passar pelos testes não será considerada pronta e deverá retornar para correção.
+
+### 7. Correções do esboço e da AP2
+
+Em relação ao esboço inicial, o projeto passou a apresentar uma definição mais clara de suas funcionalidades, responsabilidades e organização.
+
+Inicialmente, a proposta estava concentrada no gerenciamento básico de alunos, instrutores e treinos. Com a evolução do projeto, foram trabalhados conceitos de programação orientada a objetos, como encapsulamento, herança, polimorfismo, composição e validação de dados.
+
+Também foram adicionados testes para verificar o cálculo de frequência e impedir valores inválidos, contribuindo para melhorar a confiabilidade do sistema.
+
+Como encaminhamento da melhoria prioritária, a equipe pretende consolidar as funcionalidades principais, melhorar a organização do código e ampliar os testes, evitando que funcionalidades descritas na documentação sejam consideradas concluídas antes de sua implementação e validação.
+
+A equipe também pretende manter a documentação alinhada ao código, facilitando as próximas revisões e a identificação de problemas.
+
+### Considerações finais
+
+O plano inicial de qualidade estabelece critérios para orientar o desenvolvimento do projeto Academia do Eduzão e do Luizão. As prioridades são garantir que as funcionalidades atendam às necessidades dos usuários, que os dados sejam tratados corretamente e que o código permaneça organizado e fácil de manter.
+
+Com a aplicação dessas práticas, a equipe pretende desenvolver um sistema mais confiável, organizado e preparado para receber novas funcionalidades nos próximos incrementos.
