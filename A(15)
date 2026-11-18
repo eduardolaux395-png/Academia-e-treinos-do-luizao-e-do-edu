@@ -1,0 +1,205 @@
+# DOSSIÊ FINAL DE ENCERRAMENTO E EVOLUÇÃO
+## Academia do Eduzão e do Luizão
+
+**Versão:** 2.0 – Versão final AS (proposta)  
+**Data:** 18/11/2026  
+**Repositório:** https://github.com/eduardolaux395-png/Academia-e-treinos-do-luizao-e-do-edu
+
+---
+
+# 1. Apresentação do projeto
+
+O projeto Academia do Eduzão e do Luizão tem como objetivo desenvolver um sistema para auxiliar pequenas academias no gerenciamento de alunos, instrutores e treinos.
+
+A proposta surgiu da necessidade de substituir controles realizados por planilhas e anotações manuais, que podem dificultar a organização das informações, o acompanhamento dos alunos e a consulta dos treinos.
+
+O sistema busca centralizar essas informações em uma aplicação organizada, facilitando o trabalho dos instrutores e administradores.
+
+### Equipe e responsabilidades
+
+- **Eduardo Weber Laux:** desenvolvimento, organização do repositório, documentação e integração das funcionalidades.
+- **Luizão:** desenvolvimento, modelagem, implementação e revisão das funcionalidades.
+- **Equipe:** validação dos requisitos, testes, decisões de evolução e manutenção.
+
+*As responsabilidades acima são uma divisão proposta para o dossiê e devem ser confirmadas pelos integrantes.*
+
+### Funcionalidades previstas
+
+- Cadastro de alunos.
+- Cadastro de instrutores.
+- Cadastro de treinos.
+- Associação de treinos aos alunos.
+- Consulta dos treinos de cada aluno.
+- Atualização e exclusão de registros.
+- Pesquisa de alunos.
+
+# 2. Organização e rastreabilidade
+
+A documentação atual está distribuída entre as pastas `documentacao` e `codigo`. Para facilitar a localização dos materiais, propõe-se a seguinte organização lógica:
+
+| Pasta proposta | Conteúdo |
+|---|---|
+| docs/01 | Problema, contexto e público-alvo |
+| docs/02 | Entrevistas e requisitos |
+| docs/03 | Processo, equipe e backlog |
+| docs/04 | Modelagem e arquitetura |
+| docs/05 | Testes e qualidade |
+| docs/06 | Manutenção, riscos e evolução |
+
+O README deverá funcionar como página inicial do projeto, contendo os links para cada seção, o protótipo demonstrativo, a versão atual e o CHANGELOG.
+
+### Padronização dos identificadores
+
+Para evitar inconsistências, será adotado o seguinte padrão:
+
+- RF01, RF02...: requisitos funcionais.
+- RNF01, RNF02...: requisitos não funcionais.
+- RN01, RN02...: regras de negócio.
+- US01, US02...: histórias de usuário.
+- CT01, CT02...: casos de teste.
+- DT01, DT02...: dívidas técnicas.
+- R01, R02...: riscos.
+
+Cada identificador deverá manter o mesmo significado em todos os documentos.
+
+A matriz de rastreabilidade deverá relacionar:
+
+**História de usuário → Requisito → Item do backlog → Modelo → Implementação → Teste → Mudança.**
+
+A numeração definitiva deverá ser conferida com os documentos originais antes da publicação da versão final.
+
+# 3. Registro de dívida técnica
+
+A dívida técnica representa melhorias que foram adiadas durante o desenvolvimento para priorizar funcionalidades mais importantes ou cumprir os prazos das atividades.
+
+| ID | Descrição | Onde | Tipo | Quadrante | Juros | Custo | Decisão | Quando |
+|---|---|---|---|---|---|---|---|---|
+| DT01 | Documentação distribuída em diferentes pastas | Repositório | Documentação | Inadvertida/prudente | Alto | M | Pagar | Agora |
+| DT02 | Ausência de CHANGELOG centralizado | Raiz do projeto | Documentação | Inadvertida/prudente | Médio | P | Pagar | Agora |
+| DT03 | Necessidade de ampliar os testes automatizados | Código | Produto/testes | Inadvertida/prudente | Alto | G | Pagar | Próximo |
+| DT04 | Ausência de persistência definitiva dos dados | Arquitetura | Produto | Deliberada/prudente | Alto | G | Planejar | Depois |
+| DT05 | Protótipo ainda precisa de validação completa do fluxo | Interface | Produto | Inadvertida/prudente | Médio | M | Planejar | Próximo |
+
+*Os quadrantes são classificações propostas e devem ser confirmados pela equipe. O custo P/M/G significa pequeno, médio e grande.*
+
+### Dívidas pagas antes da AS
+
+Não foram identificadas evidências suficientes para declarar que essas cinco dívidas já foram pagas antes da AS.
+
+A equipe deverá atualizar esta seção quando houver comprovação:
+
+- DT01: link do commit de reorganização.
+- DT02: link do commit de criação do CHANGELOG.
+- DT03: link do commit com novos testes.
+- DT04: permanece pendente.
+- DT05: link do commit com validação do protótipo, quando realizado.
+
+# 4. Plano de manutenção
+
+Após a entrega, a manutenção ficará sob responsabilidade da equipe de desenvolvimento, com participação dos responsáveis pelo projeto.
+
+### 4.1. Recebimento das solicitações
+
+As solicitações serão recebidas pelo GitHub, utilizando Issues para registrar problemas, sugestões e novas funcionalidades.
+
+O fluxo será:
+
+1. Usuário ou integrante identifica um problema ou necessidade.
+2. A solicitação é registrada no GitHub.
+3. A equipe analisa o impacto nos requisitos, arquitetura, código e testes.
+4. O responsável pelo produto avalia prioridade e aprovação.
+5. A equipe implementa a alteração em uma branch.
+6. São realizados testes e revisão.
+7. A alteração é integrada à versão principal.
+8. O CHANGELOG é atualizado e uma nova versão é publicada.
+
+### 4.2. Tipos de manutenção
+
+**Manutenção corretiva**
+
+Corrige problemas encontrados durante a utilização.
+
+Exemplo: corrigir um erro que impede a associação de um treino a determinado aluno.
+
+**Manutenção adaptativa**
+
+Adapta o sistema a mudanças externas ou novas necessidades do ambiente.
+
+Exemplo: adaptar o sistema para funcionar com uma nova versão do Java ou com um novo banco de dados.
+
+**Manutenção perfectiva**
+
+Melhora funcionalidades existentes e a experiência de utilização.
+
+Exemplo: melhorar a pesquisa de alunos, permitindo localizar registros com maior facilidade.
+
+**Manutenção preventiva**
+
+Busca evitar problemas futuros.
+
+Exemplo: ampliar testes automatizados, revisar a organização dos pacotes e atualizar dependências.
+
+### 4.3. Frequência das versões
+
+A proposta é publicar versões de manutenção mensalmente, quando existirem melhorias ou correções aprovadas.
+
+Correções críticas poderão gerar versões extraordinárias.
+
+As alterações serão comunicadas por meio de:
+
+- Releases do GitHub.
+- CHANGELOG atualizado.
+- Descrição das funcionalidades e correções.
+- Histórico de commits e Pull Requests.
+
+# 5. Registro atualizado de riscos
+
+O registro abaixo é uma proposta de atualização para validação com a matriz original da A8.
+
+| ID | Risco | Probabilidade | Impacto | Status | Ação preventiva |
+|---|---|---|---|---|---|
+| R01 | Erros nas funcionalidades de cadastro | Média | Alto | Em monitoramento | Realizar testes de validação |
+| R02 | Perda de informações dos alunos | Média | Alto | Em monitoramento | Planejar persistência e backups |
+| R03 | Dificuldade de manutenção do código | Média | Médio | Parcialmente mitigado | Separar responsabilidades em pacotes |
+| R04 | Falta de testes suficientes | Alta | Alto | Aberto | Ampliar testes automatizados |
+| R05 | Documentação desatualizada | Alta | Médio | Em tratamento | Centralizar documentos e atualizar README |
+| R06 | Crescimento do sistema sem planejamento arquitetural | Média | Alto | Novo risco – aberto | Revisar arquitetura antes de novas funcionalidades |
+
+### Acompanhamento dos riscos
+
+Os riscos serão revisados a cada ciclo de desenvolvimento ou quando uma mudança significativa for solicitada.
+
+Os riscos de maior impacto terão prioridade na análise e na implementação de medidas preventivas.
+
+# 6. Roadmap de evolução
+
+O roadmap organiza as próximas atividades conforme valor, risco e custo de manutenção.
+
+| Agora | Próximo | Depois |
+|---|---|---|
+| Organizar a documentação | Ampliar testes automatizados | Implementar persistência definitiva |
+| Atualizar README | Validar protótipo | Criar relatórios de evolução |
+| Criar CHANGELOG | Melhorar consultas e pesquisas | Evoluir funcionalidades administrativas |
+| Conferir rastreabilidade | Revisar arquitetura | Preparar integração com banco de dados |
+
+### Justificativa das prioridades
+
+**Agora:** atividades essenciais para concluir a documentação e reduzir a dívida técnica acumulada. A falta de organização documental possui juros elevados porque dificulta a localização e a manutenção das informações.
+
+**Próximo:** melhorias que aumentam a confiabilidade e a qualidade do produto. Os testes e a validação do protótipo reduzem riscos de erros e problemas de utilização.
+
+**Depois:** funcionalidades que exigem maior planejamento e esforço de implementação. A persistência definitiva e os relatórios poderão ser desenvolvidos quando a estrutura atual estiver mais consolidada.
+
+# 7. Lições aprendidas
+
+Durante o desenvolvimento do projeto, a equipe percebeu a importância de organizar o código, documentar as decisões e manter os requisitos conectados às funcionalidades implementadas. Uma das principais dificuldades foi desenvolver as atividades e evoluir o sistema ao mesmo tempo, o que acabou deixando algumas melhorias e documentações para etapas posteriores. Se começássemos o projeto hoje, organizaríamos melhor o repositório desde o início, definiríamos identificadores padronizados para os requisitos, realizaríamos testes a cada funcionalidade e manteríamos a documentação atualizada durante todo o desenvolvimento. Também dedicaríamos mais tempo ao planejamento das responsabilidades e à revisão da arquitetura. Com isso, o desenvolvimento seria mais organizado, a manutenção seria facilitada e teríamos maior controle sobre a qualidade do sistema.
+
+# 8. Encerramento
+
+A versão final do dossiê representa a consolidação das atividades de planejamento, desenvolvimento, documentação e qualidade realizadas durante o projeto Academia do Eduzão e do Luizão.
+
+Mesmo com melhorias ainda planejadas, o projeto possui uma base de funcionalidades, documentação e organização que permite continuar sua evolução.
+
+O objetivo da próxima etapa é reduzir as dívidas técnicas, ampliar os testes, melhorar a arquitetura e preparar o sistema para utilização mais completa.
+
+**Versão documental proposta: 2.0 – Versão final AS.**
